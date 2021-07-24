@@ -1,6 +1,8 @@
 import React from "react"
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import Feather from "react-native-vector-icons/Feather"
+import Antdesign from "react-native-vector-icons/AntDesign"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import {
  Text,
@@ -10,7 +12,7 @@ import {
 } from "react-native"
 
 const Tab = createBottomTabNavigator()
-const windowHeight = Dimensions.get('window').height * 0.1;
+const windowHeight = Dimensions.get('window').height * 0.147;
 
 export default () => {
  return (
@@ -21,7 +23,7 @@ export default () => {
     bottom: 20,
     marginLeft: 15,
     marginRight: 15,
-    height: windowHeight,
+    height: windowHeight - 27,
     borderRadius: 15
    }
   }}>
@@ -33,7 +35,7 @@ export default () => {
       <>
        <View style={styles.TabScreen}>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-         <MaterialCommunityIcons name="youtube-tv" size={windowHeight / 3} color={focused ? "red" : "#808080"} />
+         <Antdesign name="home" size={windowHeight / 3.9} color={focused ? "red" : "#808080"} />
          <Text style={{ fontSize: 12, color: focused ? "red" : "#808080" }}>Home</Text>
         </View>
        </View>
@@ -49,7 +51,7 @@ export default () => {
       <>
        <View style={styles.TabScreen}>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-         <MaterialCommunityIcons name="lightning-bolt" size={windowHeight / 3} color={focused ? "red" : "#808080"} />
+         <Antdesign name="staro" size={windowHeight / 3.9} color={focused ? "red" : "#808080"} />
          <Text style={{ fontSize: 12, color: focused ? "red" : "#808080" }}>Treding</Text>
         </View>
        </View>
@@ -66,7 +68,7 @@ export default () => {
       <>
        <View style={styles.TabScreen}>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-         <MaterialIcons name="subscriptions" size={windowHeight / 3} color={focused ? "red" : "#808080"} />
+         <Antdesign name="book" size={windowHeight / 3.9} color={focused ? "red" : "#808080"} />
          <Text style={{ fontSize: 12, color: focused ? "red" : "#808080" }}>Subscriptions</Text>
         </View>
        </View>
@@ -83,7 +85,7 @@ export default () => {
       <>
        <View style={styles.TabScreen}>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-         <MaterialCommunityIcons name="email" size={windowHeight / 3} color={focused ? "red" : "#808080"} />
+         <Antdesign name="inbox" size={windowHeight / 3.9} color={focused ? "red" : "#808080"} />
          <Text style={{ fontSize: 12, color: focused ? "red" : "#808080" }}>Inbox</Text>
         </View>
        </View>
@@ -101,7 +103,7 @@ export default () => {
       <>
        <View style={[, styles.TabScreen]}>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-         <MaterialIcons name="video-library" size={windowHeight / 3} color={focused ? "red" : "#808080"} />
+         <Feather name="folder" size={windowHeight / 3.9} color={focused ? "red" : "#808080"} />
          <Text style={{ fontSize: 12, color: focused ? "red" : "#808080" }}>Library</Text>
         </View>
        </View>
@@ -161,6 +163,6 @@ const styles = StyleSheet.create({
   flex: 1,
   alignItems: "center",
   justifyContent: "space-between",
-  paddingTop: 17
+  paddingTop: 15
  }
 })
