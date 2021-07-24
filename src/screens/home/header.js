@@ -8,7 +8,6 @@ import {
   Dimensions,
   View,
   StyleSheet,
-  StatusBar,
   Image,
   TouchableOpacity
 } from "react-native"
@@ -19,8 +18,6 @@ const windowHeight = Dimensions.get('window').height * 0.147;
 export default () => {
   return (
     <>
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
-
       <ART.Surface
         width={windowWidth}
         height={windowHeight}

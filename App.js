@@ -1,9 +1,9 @@
 import React from "react"
-import Home from "./src/screens/home/home"
+import App from "./src/routes/index"
 
 
 export default () => {
   return (
-    <Home />
+    <App />
   )
 }
