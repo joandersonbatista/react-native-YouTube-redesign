@@ -4,8 +4,8 @@ import BottomNavigation from "../../routes/tab"
 import {
  View
 } from "react-native"
-
 export default () => {
+
  return (
   <>
    <Header />
