@@ -12,7 +12,7 @@ import {
 } from "react-native"
 
 const TabBarHeight = Dimensions.get('window').height * 0.09;
-const totalWidth = Dimensions.get("window").width - 40;
+const totalWidth = Dimensions.get("window").width - 30;
 
 export default function MyTabBar({ state, descriptors, navigation }) {
 
@@ -45,9 +45,9 @@ export default function MyTabBar({ state, descriptors, navigation }) {
       styles.slider,
       {
        transform: [{ translateX: translateValue }],
-       width: tabWidth - 20,
-       marginRight: 10,
-       marginLeft: 10
+       width: tabWidth - 30,
+       marginRight: 15,
+       marginLeft: 15
       },
      ]}
     />
@@ -98,6 +98,12 @@ export default function MyTabBar({ state, descriptors, navigation }) {
        <BottomMenuItem
         iconName={label.toString()}
         isCurrent={isFocused}
+        index={
+         index == 0 ? "Home" :
+         index == 1 ? "Trending" : 
+         index == 2 ? "Subscriptions" :
+         index == 3 ? "Inbox" : "Library"
+        }
        />
       </TouchableOpacity>
      );
@@ -111,8 +117,8 @@ const styles = StyleSheet.create({
  TabContainer: {
   position: "absolute",
   bottom: Platform.OS === "ios" ? 33 : 20,
-  marginLeft: 20,
-  marginRight: 20,
+  marginLeft: 15,
+  marginRight: 15,
   height: TabBarHeight,
   borderRadius: 12.5,
   backgroundColor: "white",
@@ -134,11 +140,10 @@ const styles = StyleSheet.create({
   bottom: 0,
   backgroundColor: "red",
   borderRadius: 10,
-  overflow: "hidden"
  },
 })
 
-const BottomMenuItem = ({ iconName, isCurrent }) => {
+const BottomMenuItem = ({ iconName, isCurrent, index }) => {
  return (
   <View
    style={{
@@ -153,7 +158,7 @@ const BottomMenuItem = ({ iconName, isCurrent }) => {
     :
     <Antdesign name={iconName} size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
    }
-   <Text style={{ fontSize: 12, color: isCurrent ? "red" : "#808080" }}>{iconName}</Text>
+   <Text style={{ fontSize: 12, color: isCurrent ? "red" : "#808080" }}>{index}</Text>
   </View>
  );
 };
