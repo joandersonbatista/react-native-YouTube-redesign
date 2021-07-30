@@ -51,7 +51,6 @@ export default function MyTabBar({ state, descriptors, navigation }) {
       },
      ]}
     />
-
     {state.routes.map((route, index) => {
      const { options } = descriptors[route.key];
      const label =
@@ -99,10 +98,10 @@ export default function MyTabBar({ state, descriptors, navigation }) {
         iconName={label.toString()}
         isCurrent={isFocused}
         index={
-         index == 0 ? "Home" :
-         index == 1 ? "Trending" : 
-         index == 2 ? "Subscriptions" :
-         index == 3 ? "Inbox" : "Library"
+         index == 0 ? "Início" :
+         index == 1 ? "Em alta" : 
+         index == 2 ? "Inscrições" :
+         index == 3 ? "Inbox" : "Biblioteca"
         }
        />
       </TouchableOpacity>
@@ -112,6 +111,26 @@ export default function MyTabBar({ state, descriptors, navigation }) {
   </View>
  );
 }
+
+const BottomMenuItem = ({ iconName, isCurrent, index }) => {
+ return (
+  <View
+   style={{
+    height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+   }}
+  >
+   {iconName == "folder"
+    ?
+    <Feather name="folder" size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
+    :
+    <Antdesign name={iconName} size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
+   }
+   <Text style={{ fontSize: 12, color: isCurrent ? "red" : "#808080" }}>{index}</Text>
+  </View>
+ );
+};
 
 const styles = StyleSheet.create({
  TabContainer: {
@@ -142,62 +161,3 @@ const styles = StyleSheet.create({
   borderRadius: 10,
  },
 })
-
-const BottomMenuItem = ({ iconName, isCurrent, index }) => {
- return (
-  <View
-   style={{
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-   }}
-  >
-   {iconName == "folder"
-    ?
-    <Feather name="folder" size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
-    :
-    <Antdesign name={iconName} size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
-   }
-   <Text style={{ fontSize: 12, color: isCurrent ? "red" : "#808080" }}>{index}</Text>
-  </View>
- );
-};
-
-export const Home = () => {
- return (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-   <Text>Home</Text>
-  </View>
- )
-}
-export const EmAlta = () => {
- return (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-   <Text>Em Alta</Text>
-
-  </View>
- )
-}
-export const Inscricoes = () => {
- return (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-   <Text>Inscrições</Text>
-
-  </View>
- )
-}
-export const Inbox = () => {
- return (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-   <Text>Inbox</Text>
-
-  </View>
- )
-}
-export const Library = () => {
- return (
-  <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-   <Text>Livraria</Text>
-  </View>
- )
-}
