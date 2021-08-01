@@ -45,9 +45,9 @@ export default function MyTabBar({ state, descriptors, navigation }) {
       styles.slider,
       {
        transform: [{ translateX: translateValue }],
-       width: tabWidth - 30,
-       marginRight: 15,
-       marginLeft: 15
+       width: tabWidth - 40,
+       marginRight: 20,
+       marginLeft: 20
       },
      ]}
     />
@@ -97,7 +97,7 @@ export default function MyTabBar({ state, descriptors, navigation }) {
        <BottomMenuItem
         iconName={label.toString()}
         isCurrent={isFocused}
-        index={
+        title={
          index == 0 ? "Início" :
          index == 1 ? "Em alta" : 
          index == 2 ? "Inscrições" :
@@ -112,7 +112,7 @@ export default function MyTabBar({ state, descriptors, navigation }) {
  );
 }
 
-const BottomMenuItem = ({ iconName, isCurrent, index }) => {
+const BottomMenuItem = ({ iconName, isCurrent, title }) => {
  return (
   <View
    style={{
@@ -123,11 +123,11 @@ const BottomMenuItem = ({ iconName, isCurrent, index }) => {
   >
    {iconName == "folder"
     ?
-    <Feather name="folder" size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
+    <Feather name="folder" size={TabBarHeight / 3} color={isCurrent ? "#CF1312" : "#808080"} />
     :
-    <Antdesign name={iconName} size={TabBarHeight / 3} color={isCurrent ? "red" : "#808080"} />
+    <Antdesign name={iconName} size={TabBarHeight / 3} color={isCurrent ? "#CF1312" : "#808080"} />
    }
-   <Text style={{ fontSize: 12, color: isCurrent ? "red" : "#808080" }}>{index}</Text>
+   <Text style={{ fontSize: 12, color: isCurrent ? "#CF1312" : "#808080" }}>{title}</Text>
   </View>
  );
 };
@@ -152,12 +152,12 @@ const styles = StyleSheet.create({
   alignItems: "center"
  },
  slider: {
-  height: 5,
+  height: 3.5,
   position: "absolute",
-  top: "92.9%",
+  top: "94.5%",
   left: 0,
   bottom: 0,
-  backgroundColor: "red",
+  backgroundColor: "#C4302B",
   borderRadius: 10,
  },
 })

@@ -29,7 +29,6 @@ export default () => {
      shadowOpacity={0.3}
      shadowRadius={15} />
    </ART.Surface>
-
    <View style={styles.AppBar}>
     <View style={styles.IconsContainer1}>
      <TouchableOpacity>
@@ -39,12 +38,10 @@ export default () => {
        color="#808080" />
      </TouchableOpacity>
     </View>
-
-    <Image
-     source={require("../../assets/youtube-logo.png")}
-     style={styles.stretch} />
-
-    <View style={styles.IconsContainer0}>
+     <Image
+      source={require("../../assets/youtube-l.png.png")}
+      style={styles.stretch}/>
+   <View style={styles.IconsContainer0}>
      <TouchableOpacity>
       <MaterialCommunity
        name="movie-open-outline"
@@ -84,18 +81,18 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   alignSelf: "baseline",
   width: windowWidth,
-  height: windowHeight / 2,
+  height: windowHeight / 1.8,
   marginTop: windowHeight / 5,
   paddingLeft: 20,
   paddingRight: 20,
-  marginBottom: 20
+  marginBottom: 24
  },
  stretch: {
   flex: 1,
-  height: windowHeight / 4,
-
+  height: windowHeight / 3,
   resizeMode: "center",
-  margin: "auto"
+  margin: "auto",
+  marginTop: 1.7
  },
  IconsContainer0: {
   flex: 1,
