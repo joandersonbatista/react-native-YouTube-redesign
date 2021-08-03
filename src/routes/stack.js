@@ -1,6 +1,6 @@
 import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
-import home from "../screens/home"
+import home from "../screens/initialScreen"
 
 const Stack = createStackNavigator()
 

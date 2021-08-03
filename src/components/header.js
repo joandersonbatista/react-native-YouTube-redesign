@@ -39,7 +39,7 @@ export default () => {
      </TouchableOpacity>
     </View>
      <Image
-      source={require("../../assets/youtube-l.png.png")}
+      source={require("../assets/youtube-l.png.png")}
       style={styles.stretch}/>
    <View style={styles.IconsContainer0}>
      <TouchableOpacity>

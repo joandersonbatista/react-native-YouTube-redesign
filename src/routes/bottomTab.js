@@ -1,12 +1,13 @@
 import React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import TabBar from "../screens/home/bottomNavigation"
+import TabBar from "../components/bottomNavigation"
 
-import Inicio from "../screens/home/inicio"
-import EmAlta from "../screens/home/emAlta"
-import Inscricoes from "../screens/home/inscricoes"
-import Inbox from "../screens/home/inbox"
-import Biblioteca from "../screens/home/biblioteca"
+import EmAlta from "../screens/emAlta"
+import Inscricoes from "../screens/inscricoes"
+import Inbox from "../screens/inbox"
+import Biblioteca from "../screens/biblioteca"
+import inicios from "../screens/inicios"
+import inicio from "../screens/inicio"
 
 const Tab = createBottomTabNavigator()
 
@@ -19,7 +20,7 @@ export default () => {
    >
     <Tab.Screen
      name="home"
-     component={Inicio}
+     component={inicios}
     />
     <Tab.Screen
      name="staro"
