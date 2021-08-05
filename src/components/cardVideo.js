@@ -1,47 +1,51 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import API from "../services/api"
 import {
  View,
  FlatList,
  StyleSheet,
  Text,
- SafeAreaView
+ Dimensions,
+ Image
 } from "react-native"
+
+const totalWidth = Dimensions.get("window").width
 
 export default () => {
 
  const [data, SetData] = useState([])
+ useEffect(async () => {
+  SetData(await API.videoCategory("28"))
+ }, [])
 
- const renderItem = ({ item }) => (
-  <Text>{item.id}</Text>
+ const renderItem = ({item}) => (
+  <>
+   <View style={styles.Container}>
+    <View style={styles.Container}>
+     <Image resizeMode="cover" style={{height: "100%"}} source={{uri: "https://i.ytimg.com/vi/AO-Gwd2adlM/mqdefault.jpg"}}/>
+    </View>
+   </View>
+  </>
  );
- 
-useEffect( async () => {
- SetData(await API.videoCategory("28"))
-},[])
 
-console.log("conseguimosrrr" + data)
+ console.log("conseguimosrrr" + data)
  return (
-  <SafeAreaView>
+  <View style={{ flex: 1, alignItems: "center" }}>
    <FlatList
     data={data}
     renderItem={renderItem}
     keyExtractor={item => item.id}
+    showsVerticalScrollIndicator={false}
    />
-  </SafeAreaView>
- );
-}
-
-const renderItem = ({data}) => {
- return (
-  <View>
-   <Text>{data.id}</Text>
   </View>
- )
+ );
 }
 
 const styles = StyleSheet.create({
  Container: {
-  flex: 1
+  backgroundColor: "blue",
+  height: 180,
+  width: 320,
+  marginBottom: 5
  }
 })

@@ -2,15 +2,17 @@ import React from "react"
 import Header from "../components/header"
 import BottomNavigation from "../routes/bottomTab"
 import {
- View
+ View,
+ ScrollView,
+ Text
 } from "react-native"
 export default () => {
 
  return (
   <>
-   <Header />
-   <View style={{ flex: 1 }}>
+   <View style={{ flex: 1}}>
     <BottomNavigation />
+    <Header />
    </View>
   </>
  )

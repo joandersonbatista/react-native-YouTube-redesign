@@ -21,7 +21,8 @@ export default () => {
    <ART.Surface
     width={windowWidth}
     height={windowHeight}
-    style={styles.Path}>
+    style={styles.Path}
+    >
     <ART.Shape
      d={Path()}
      fill="white"
@@ -72,7 +73,7 @@ function Path() {
 
 const styles = StyleSheet.create({
  Path: {
-  position: "absolute"
+  position: "absolute",
  },
  AppBar: {
   display: "flex",
@@ -85,7 +86,7 @@ const styles = StyleSheet.create({
   marginTop: windowHeight / 5,
   paddingLeft: 20,
   paddingRight: 20,
-  marginBottom: 24
+  position: "absolute"
  },
  stretch: {
   flex: 1,

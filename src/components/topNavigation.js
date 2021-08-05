@@ -4,9 +4,10 @@ import {
  TouchableOpacity,
  StyleSheet,
  Dimensions,
- Text
+ Text,
 } from "react-native"
 
+const windowHeight = Dimensions.get('window').height * 0.147
 
 export default ({ state, descriptors, navigation }) => {
  return (
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   marginLeft: 15,
   marginRight: 15,
+  marginTop: windowHeight - 7
  },
  TabMenu: {
   flex: 1, 

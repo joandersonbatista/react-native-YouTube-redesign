@@ -23,7 +23,6 @@ export default () => {
 }
 
 export const EmAlta = () => {
-
  return (
   <CardVideo />
  );
@@ -33,7 +32,6 @@ export const Inscricoes = () => {
   <></>
  )
 }
-
 export const AAA = () => {
  return (
   <></>
