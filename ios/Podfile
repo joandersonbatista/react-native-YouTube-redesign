@@ -13,6 +13,7 @@ target 'JoTube' do
   )
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  pod 'ReactNativeART', :path => '../node_modules/@react-native-community/art'
 
   target 'JoTubeTests' do
     inherit! :complete

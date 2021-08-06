@@ -13,7 +13,7 @@ export default {
      part: "snippet, contentDetails",
      videoCategoryId: category,
      chart: "mostPopular",
-     maxResults: 4,
+     maxResults: 100,
      key: KEY
     }
    })

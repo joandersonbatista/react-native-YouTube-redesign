@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import API from "../services/api"
+import {pure} from "recompose"
 import {
  View,
  FlatList,
@@ -17,7 +18,7 @@ export default () => {
  useEffect(async () => {
   SetData(await API.videoCategory("28"))
  }, [])
-
+ 
  const renderItem = ({item}) => (
   <>
    <View style={styles.Container}>
@@ -27,8 +28,6 @@ export default () => {
    </View>
   </>
  );
-
- console.log("conseguimosrrr" + data)
  return (
   <View style={{ flex: 1, alignItems: "center" }}>
    <FlatList
@@ -36,6 +35,9 @@ export default () => {
     renderItem={renderItem}
     keyExtractor={item => item.id}
     showsVerticalScrollIndicator={false}
+    maxToRenderPerBatch
+    initialNumToRender
+    removeClippedSubviews
    />
   </View>
  );
