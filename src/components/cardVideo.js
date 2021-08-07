@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react"
 import API from "../services/api"
-import {pure} from "recompose"
 import {
  View,
  FlatList,
  StyleSheet,
- Text,
  Dimensions,
  Image
 } from "react-native"
@@ -15,9 +13,14 @@ const totalWidth = Dimensions.get("window").width
 export default () => {
 
  const [data, SetData] = useState([])
- useEffect(async () => {
-  SetData(await API.videoCategory("28"))
+
+ useEffect(() => {
+  loadApi()
  }, [])
+
+ const loadApi = async () => {
+  SetData(await API.videoCategory("28"))
+ }
  
  const renderItem = ({item}) => (
   <>
@@ -35,9 +38,6 @@ export default () => {
     renderItem={renderItem}
     keyExtractor={item => item.id}
     showsVerticalScrollIndicator={false}
-    maxToRenderPerBatch
-    initialNumToRender
-    removeClippedSubviews
    />
   </View>
  );
