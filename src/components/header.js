@@ -13,14 +13,15 @@ import {
 } from "react-native"
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height * 0.147;
+const windowHeight = Dimensions.get('window').height * 0.13;
+const pathHeight = Dimensions.get('window').height * 0.13;
 
 export default () => {
  return (
   <>
    <ART.Surface
     width={windowWidth}
-    height={windowHeight}
+    height={pathHeight}
     style={styles.Path}
     >
     <ART.Shape
@@ -40,7 +41,7 @@ export default () => {
      </TouchableOpacity>
     </View>
      <Image
-      source={require("../assets/youtube-l.png.png")}
+      source={require("../assets/images/youtube-l.png.png")}
       style={styles.stretch}/>
    <View style={styles.IconsContainer0}>
      <TouchableOpacity>
@@ -64,8 +65,8 @@ export default () => {
 
 function Path() {
  let path = D3.path()
- path.lineTo(0, windowHeight * 0.70)
- path.quadraticCurveTo(windowWidth / 2, windowHeight, windowWidth, windowHeight * 0.70)
+ path.lineTo(0, pathHeight * 0.65)
+ path.quadraticCurveTo(windowWidth / 2, pathHeight, windowWidth, pathHeight * 0.65)
  path.lineTo(windowWidth, 0)
 
  return path.toString()
@@ -83,17 +84,17 @@ const styles = StyleSheet.create({
   alignSelf: "baseline",
   width: windowWidth,
   height: windowHeight / 1.8,
-  marginTop: windowHeight / 5,
+  marginTop: pathHeight / 10,
   paddingLeft: 20,
   paddingRight: 20,
   position: "absolute"
  },
  stretch: {
   flex: 1,
-  height: windowHeight / 3,
+  height: windowHeight / 2.7,
   resizeMode: "center",
   margin: "auto",
-  marginTop: 1.7
+  marginTop: 1.4
  },
  IconsContainer0: {
   flex: 1,

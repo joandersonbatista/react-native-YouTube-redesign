@@ -135,7 +135,7 @@ const BottomMenuItem = ({ iconName, isCurrent, title }) => {
 const styles = StyleSheet.create({
  TabContainer: {
   position: "absolute",
-  bottom: Platform.OS === "ios" ? 33 : 20,
+  bottom: Platform.OS === "ios" ? 33 : 13,
   marginLeft: 15,
   marginRight: 15,
   height: TabBarHeight,

@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   marginLeft: 15,
   marginRight: 15,
-  marginTop: windowHeight - 7
+  marginTop: windowHeight - 15
  },
  TabMenu: {
   flex: 1, 

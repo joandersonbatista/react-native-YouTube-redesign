@@ -3,8 +3,9 @@ import App from "./src/routes/index"
 import 'react-native-gesture-handler'
 
 export default () => {
- console.log("foi")
  return (
-  <App />
+  <>
+   <App />
+  </>
  )
 }

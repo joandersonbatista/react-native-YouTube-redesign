@@ -5,20 +5,39 @@ const URL_BASE = "https://www.googleapis.com/youtube/v3/"
 
 export default {
  
- videoCategory: async (category) => {
-
+ videoCategory: async (category, page) => {
+  
   try {
    const req = await axios.get(`${URL_BASE}videos`, {
     params: {
      part: "snippet, contentDetails",
      videoCategoryId: category,
      chart: "mostPopular",
-     maxResults: 100,
+     maxResults: 28,
+     pageToken: page,
+     regionCode: "BR",
      key: KEY
     }
    })
-   const response = req.data.items
-   return response
+   return req.data
+  } catch (error) {
+   console.log("Deu ruim"+ error)
+  }
+ },
+
+ ChannelID: async (id) => {
+
+  try {
+   const req = await axios.get(`${URL_BASE}channels`, {
+    params: {
+     part: "snippet",
+     id: id,
+     key: KEY
+    }
+   })
+   const [sera] = req.data.items
+   
+   return sera.snippet.thumbnails.medium.url
   } catch (error) {
    console.log("Deu ruim"+ error)
   }
