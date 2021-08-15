@@ -10,10 +10,10 @@ export default {
   try {
    const req = await axios.get(`${URL_BASE}videos`, {
     params: {
-     part: "snippet, contentDetails",
+     part: "snippet, contentDetails, statistics",
      videoCategoryId: category,
      chart: "mostPopular",
-     maxResults: 28,
+     maxResults: 10,
      pageToken: page,
      regionCode: "BR",
      key: KEY

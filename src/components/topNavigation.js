@@ -7,8 +7,6 @@ import {
  Text,
 } from "react-native"
 
-const windowHeight = Dimensions.get('window').height * 0.147
-
 export default ({ state, descriptors, navigation }) => {
  return (
   <View style={styles.TabContainer}>
@@ -81,7 +79,7 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   marginLeft: 15,
   marginRight: 15,
-  marginTop: windowHeight - 15
+  marginTop: 85
  },
  TabMenu: {
   flex: 1, 

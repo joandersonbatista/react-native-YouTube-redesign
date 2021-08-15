@@ -11,7 +11,7 @@ import {
  Platform
 } from "react-native"
 
-const TabBarHeight = Dimensions.get('window').height * 0.09;
+const TabBarHeight = 60;
 const totalWidth = Dimensions.get("window").width - 30;
 
 export default function MyTabBar({ state, descriptors, navigation }) {

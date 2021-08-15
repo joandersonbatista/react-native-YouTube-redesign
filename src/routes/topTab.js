@@ -13,32 +13,32 @@ export default () => {
   initialRouteName="AII" 
   swipeEnabled={false}>
 
-   <Tab.Screen name="Tecnologia" component={EmAlta} />
-   <Tab.Screen name="Noticias" component={Inscricoes} />
-   <Tab.Screen name="Musica" component={AAA} />
-   <Tab.Screen name="Todos" component={BB} />
+   <Tab.Screen name="Tecnologia" component={Tecnologia} />
+   <Tab.Screen name="Noticias" component={Noticias} />
+   <Tab.Screen name="Musicas" component={Musicas} />
+   <Tab.Screen name="Todos" component={Todos} />
 
   </Tab.Navigator>
  )
 }
 
-export const EmAlta = () => {
+export const Tecnologia = () => {
  return (
-  <CardVideo />
+  <CardVideo categoryVideo="28"/>
  );
 }
-export const Inscricoes = () => {
+export const Noticias = () => {
  return (
-  <></>
+  <CardVideo categoryVideo="25"/>
  )
 }
-export const AAA = () => {
+export const Musicas = () => {
  return (
-  <></>
+  <CardVideo categoryVideo="10"/>
  )
 }
-export const BB = () => {
+export const Todos = () => {
  return (
-  <></>
+  <CardVideo categoryVideo={null}/>
  )
 }
