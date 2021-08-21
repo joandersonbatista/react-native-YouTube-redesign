@@ -5,6 +5,7 @@ import {
  SafeAreaView,
  StatusBar
 } from "react-native"
+
 export default () => {
 
  return (

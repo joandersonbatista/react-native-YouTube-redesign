@@ -1,18 +1,26 @@
-import React, {createContext, useState} from "react"
-import {
-  Animated
-} from "react-native"
+import React, {createContext, useState,useReducer} from "react"
 
 
 const animatedContext = createContext({})
 
 
 export const UserProvider = props => {
-  const [scrollY, SetScrollY] = useState(new Animated.Value(0))
+  const [scrollY, setScrollY] = useState()
+  
+  const reducer = (state,action) => {
+    switch (action.type) {
+      case 'increment':
+        return setScrollY(action.payload)
+      default:
+        throw new Error();
+    }
+    return state
+  }
+  const [_state, dispath] = useReducer(reducer, scrollY)
+
   return (
     <animatedContext.Provider value={{
-        scrollY, 
-        SetScrollY
+      _state, dispath
     }}>
       {props.children}
     </animatedContext.Provider>

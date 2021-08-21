@@ -42,5 +42,4 @@ export default {
    console.log("Deu ruim"+ error)
   }
  }
-
 }

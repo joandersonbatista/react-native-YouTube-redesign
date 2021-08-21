@@ -13,17 +13,19 @@ import {
   Animated,
   ActivityIndicator
 } from "react-native"
+
 import moment from "moment"
 
 const totalWidth = Dimensions.get("window").width
 
 export default ({ categoryVideo }) => {
 
-  const { scrollY, SetScrollY } = useContext(animatedContext)
+  const { dispath } = useContext(animatedContext)
 
   const [data, SetData] = useState([])
   const [page, SetPage] = useState(null)
   const [load, SetLoad] = useState(false)
+  const [scrollY, SetScrollY] = useState(new Animated.Value(0))
 
   useEffect(() => {
     loadApi()
@@ -50,12 +52,20 @@ export default ({ categoryVideo }) => {
             contentOffset: { y: scrollY }
           },
         }],
-          { useNativeDriver: false })}
+          {
+            useNativeDriver: false,
+            listener: event => {
+              dispath({
+                type: "increment",
+                payload: scrollY._value
+              })
+            }
+          })}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
         onEndReached={loadApi}
         onEndReachedThreshold={0.2}
-        ListFooterComponent={<FooterList load={load}/>}
+        ListFooterComponent={<FooterList sera={scrollY} load={load} />}
       />
     </View>
   );
@@ -128,10 +138,6 @@ const RenderItem = ({ data }) => {
     SetLogo(await API.ChannelID(channelId))
   }
 
-  function getRandomArbitrary() {
-    return Math.random() * (80 - 10) + 10;
-  }
-
   return (
     <View style={styles.Container}>
       <View style={styles.CardContainer}>
@@ -146,8 +152,8 @@ const RenderItem = ({ data }) => {
           <SimpleLineIcons name="options" color="white" size={20} />
         </View>
         <View style={{ width: "100%", alignItems: "center" }}>
-          <View style={{ position: "absolute", bottom: 0, width: "90%", height: 4, backgroundColor: "white", borderRadius: 50, paddingLeft: "10%" }}>
-            <View style={{ width: `${getRandomArbitrary()}%`, height: "100%", backgroundColor: "#CF1312", position: "absolute", borderRadius: 50, left: 0 }} />
+          <View style={styles.ProgressView}>
+            <View style={styles.ProgressView2} />
           </View>
         </View>
       </View>
@@ -180,12 +186,15 @@ const RenderItem = ({ data }) => {
   )
 }
 
-const FooterList = ({load}) => {
-  if (!load) return null
+function getRandomArbitrary() {
+  return Math.random() * (80 - 10) + 10;
+}
 
+const FooterList = ({ load, sera }) => {
+  if (!load) return null
   return (
-    <View style={{height: 100,alignItems: "center"}}>
-      <ActivityIndicator size={35} color="#808080"/>
+    <View style={{ height: 200, alignItems: "center" }}>
+      <ActivityIndicator size={35} color="#808080" />
     </View>
   )
 }
@@ -279,5 +288,22 @@ const styles = StyleSheet.create({
     fontSize: 14.5,
     fontFamily: "Roboto-Medium",
     fontWeight: "600"
+  },
+  ProgressView: {
+    position: "absolute",
+    bottom: 0,
+    width: "90%",
+    height: 4,
+    backgroundColor: "white",
+    borderRadius: 50,
+    paddingLeft: "10%"
+  },
+  ProgressView2: {
+    width: `${getRandomArbitrary()}%`,
+    height: "100%",
+    backgroundColor: "#CF1312",
+    position: "absolute",
+    borderRadius: 50,
+    left: 0
   }
 })
