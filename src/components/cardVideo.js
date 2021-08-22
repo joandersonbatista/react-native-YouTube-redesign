@@ -190,7 +190,7 @@ function getRandomArbitrary() {
   return Math.random() * (80 - 10) + 10;
 }
 
-const FooterList = ({ load, sera }) => {
+const FooterList = ({ load }) => {
   if (!load) return null
   return (
     <View style={{ height: 200, alignItems: "center" }}>
