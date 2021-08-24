@@ -12,7 +12,6 @@ export default () => {
   example = async () => {
     try {
       const response = await changeNavigationBarColor('white', true);
-      console.log(response)// {success: true}
     } catch (e) {
       console.log(e)// {success: false}
     }

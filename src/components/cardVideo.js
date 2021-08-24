@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect } from "react"
 import Icon from "react-native-vector-icons/MaterialIcons"
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
 import Entypo from "react-native-vector-icons/Entypo"
 import API from "../services/api"
-import animatedContext from "../context/animatedContext"
 import {
   View,
   StyleSheet,
@@ -20,12 +19,9 @@ const totalWidth = Dimensions.get("window").width
 
 export default ({ categoryVideo }) => {
 
-  const { dispath } = useContext(animatedContext)
-
   const [data, SetData] = useState([])
   const [page, SetPage] = useState(null)
   const [load, SetLoad] = useState(false)
-  const [scrollY, SetScrollY] = useState(new Animated.Value(0))
 
   useEffect(() => {
     loadApi()
@@ -47,25 +43,11 @@ export default ({ categoryVideo }) => {
       <Animated.FlatList
         data={data}
         renderItem={({ item }) => <RenderItem data={item} />}
-        onScroll={Animated.event([{
-          nativeEvent: {
-            contentOffset: { y: scrollY }
-          },
-        }],
-          {
-            useNativeDriver: false,
-            listener: event => {
-              dispath({
-                type: "increment",
-                payload: scrollY._value
-              })
-            }
-          })}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
         onEndReached={loadApi}
         onEndReachedThreshold={0.2}
-        ListFooterComponent={<FooterList sera={scrollY} load={load} />}
+        ListFooterComponent={<FooterList load={load} />}
       />
     </View>
   );
@@ -194,7 +176,7 @@ const FooterList = ({ load }) => {
   if (!load) return null
   return (
     <View style={{ height: 200, alignItems: "center" }}>
-      <ActivityIndicator size={35} color="#808080" />
+      <ActivityIndicator size={35} color="#808080" style={{marginTop: 20}}/>
     </View>
   )
 }

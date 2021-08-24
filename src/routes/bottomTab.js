@@ -16,6 +16,7 @@ export default () => {
 
  return (
    <Tab.Navigator
+   initialRouteName="book"
     tabBar={props => <TabBar {...props} />}
    >
     <Tab.Screen
